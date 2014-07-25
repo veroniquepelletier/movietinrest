@@ -1,0 +1,16 @@
+
+<div masonry preserve-order
+  item-selector=".thumbnail" 
+  masonry-options="{'transitionDuration': 0, 'gutter': 10}">
+  <div masonry-brick 
+    class="thumbnail {{thumbnail.thumbnailSize}}"
+    ng-repeat="thumbnail in thumbnails track by $index">
+    <img src="images/{{thumbnail.img}}">
+    <div class="caption">
+      <h3>Title</h3>
+      <p>{{thumbnail.text}}</p>
+      <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    </div>
+  </div>
+</div>
+
