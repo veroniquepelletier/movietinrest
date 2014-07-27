@@ -13,9 +13,13 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- styles bootstrap overrides.css -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <!-- masonry overrides.css -->
+    <link rel="stylesheet" href="styles/masonry.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="masonryApp">
+  <body ng-app="movietinrest">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,7 +32,7 @@
           <li><a ng-href="#/about">About</a></li>
           <li><a ng-href="#">Contact</a></li>
         </ul>
-        <h3 class="text-muted">masonry test</h3>
+        <h3 class="text-muted">masonry and moviedb api test</h3>
       </div>
 
       <div ng-view=""></div>
@@ -86,6 +90,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/directives/image.js"></script>
+        <script src="scripts/services/httpSvc.js"></script>
         <script src="scripts/services/themoviedbSvc.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
