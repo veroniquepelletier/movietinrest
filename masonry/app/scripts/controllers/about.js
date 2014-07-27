@@ -2,16 +2,12 @@
 
 /**
  * @ngdoc function
- * @name masonryApp.controller:AboutCtrl
+ * @name movietinrest.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the masonryApp
+ * Controller of the movietinrest
  */
-angular.module('masonryApp')
+angular.module('movietinrest')
   .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+ 
   });

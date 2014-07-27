@@ -1,0 +1,27 @@
+/* Bootstrap overrides */
+
+.thumbnail {
+	box-shadow: 2px 2px 1px #888888;
+	margin-bottom: 10px;
+	width: 220px;
+	padding: 0px;
+}
+
+.thumbnail .caption {
+	padding: 0px;
+}
+
+.img, img {
+	width: 220px;
+	height: 180px;
+}
+
+.media-object {
+	width: 32px;
+	height: 32px;
+}
+
+.well {
+	padding: 4px;
+	margin-bottom: 0px; 
+}

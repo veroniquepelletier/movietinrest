@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name masonryApp
+ * @name movietinrest
  * @description
- * # masonryApp
+ * # movietinrest
  *
  * Main module of the application.
  */
 angular
-  .module('masonryApp', [
+  .module('movietinrest', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

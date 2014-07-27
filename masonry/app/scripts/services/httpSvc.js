@@ -1,26 +1,29 @@
-angular.module('masonryApp')
-    .factory('themoviedbSvc', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
+angular.module('movietinrest')
+    .factory('httpSvc', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
         var http = {
-            get: doHttp('GET', 'params'),
-            post: doHttp('POST', 'data'),
-            put: doHttp('PUT', 'data'),
-            del: doHttp('DELETE'),
-            urlAPI: '',
-            setAuthToken: function (_authToken) {
-                authToken = _authToken;
+                get: doHttp('GET', 'params'),
+                post: doHttp('POST', 'data'),
+                put: doHttp('PUT', 'data'),
+                del: doHttp('DELETE'),
+                apiKey: '',
+                baseUri: 'http://api.themoviedb.org/3',
+                token: '',
+                timeout: 5000,
+                setAuthToken: function (_authToken) {
+                    authToken = _authToken;
+                },
+                hasAuthorization: function () {
+                    return authToken !== undefined;
+                }
             },
-            hasAuthorization: function () {
-                return authToken !== undefined;
-            }
-
-
+            authToken;
 
             function doHttp(method, optionsEncoding) {
-                return function (injectAuthToken, options) {
+                return function (endpoint, injectAuthToken, options, canceler) {
                     var deferred = $q.defer(),
                         httpConfig = {
                             method: method,
-                            url: urlAPI
+                            url: http.baseUri + endpoint + "?api_key=" + http.apiKey
                         };
 
                     if (injectAuthToken) {
@@ -44,14 +47,13 @@ angular.module('masonryApp')
                     httpConfig[optionsEncoding] = options;
 
                     $http(httpConfig).then(function (res) {
-                        if (res.data.status === 'success') {
-                            deferred.resolve(res.data.results);
+                        window.console.log('res ::%j', res);
+                        if (res.status === 200) {
+                            deferred.resolve(res.data);
                         } else {
-                            handlePurpleError(res.data.error);
-                            deferred.reject(res.data.error);
+                            deferred.reject(res.status);
                         }
                     }, function (res) {
-                        handlePurpleError(res.error);
                         deferred.reject(res.error);
                     });
 
@@ -61,4 +63,4 @@ angular.module('masonryApp')
             }
 
             return http;
-        }]
+        }]);
